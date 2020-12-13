@@ -7,7 +7,8 @@ const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
 module.exports = {
   siteMetadata: {
     siteTitleAlt: `Nicholas Ramkissoon - Engineering Blog`,
-    siteTitle: `A Simple Software Engineering Blog`
+    siteTitle: `A Simple Software Engineering Blog`,
+    siteUrl: `https://nramkissoon.github.io`
   },
   plugins: [
     {
@@ -42,9 +43,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `minimal-blog - @lekoarts/gatsby-theme-minimal-blog`,
-        short_name: `minimal-blog`,
-        description: `Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and code highlighting.`,
+        name: `Nicholas Ramkissoon - Software Engineering Blog`,
+        short_name: `Nicholas Ramkissoon - Software Engineering Blog`,
+        description: `A simple software engineering blog.`,
         start_url: `/`,
         background_color: `#fff`,
         theme_color: `#6B46C1`,
