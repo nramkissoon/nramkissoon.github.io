@@ -9,4 +9,33 @@ tags:
   - SVMs
 ---
 
+# Japanese Reading DIfficulty Classification for Non-Native Language Learners
+
+For my final project for an advanced CS elective in Natural Language Processing, I elected to 
+create a classifying system for Japanese text. Specifically, the system would classify text into
+the 5 different [JLPT levels](https://www.jlpt.jp/e/about/levelsummary.html). 
+A system like this would be useful for people looking for practice reading materials
+that is at their skill level. 
+
+For the design details and performance results of the system, the full paper is linked at the end of this section, but  
+implications for future projects stemming from this work will be discussed in this post.
+
 <a href='https://dev-blog-materials.s3.amazonaws.com/j_text_classification_research_paper.pdf' target='_blank'>View full paper (PDF file)</a>
+
+## Future Projects
+
+The classification system is made of several components that handle 
+different aspects of feature calculation, text parsing, etc. 
+Each of these components can individually be improved upon in future work
+and integrated into other software applications. 
+
+Ideas for future work:
+
+1. **Kanji Difficulty Classification** - utilize machine learning techniques with features such as 
+unigram frequencies and number of strokes to predict the difficulty of a specific kanji character
+2. **Word Difficulty Classification Optimization** - improve and test the word difficulty classifier 
+described in the paper with new features and the above-mentioned kanji classifier
+3. **Testing Grammatical Regular Expressions** - use example sentences to properly test the regular expressions 
+that have been developed to parse for grammatical constructions, improve if necessary
+4. **Tag a Large Corpus of Text Using Grammatical Regular Expressions** - use the developed grammatical regular expressions to create a tagged corpus resource
+that can be used for language learning applications or research on Japanese grammar
