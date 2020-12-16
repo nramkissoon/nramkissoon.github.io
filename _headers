@@ -60,7 +60,7 @@
   Link: </component---node-modules-lekoarts-gatsby-theme-minimal-blog-core-src-templates-tags-query-tsx-235f8d6a5050889db42d.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/tags/page-data.json>; rel=preload; as=fetch; crossorigin
-/overview-of-designing-data-intensive-applications
+/overview-of-designing-data-intensive-applications-part-1
   Link: </webpack-runtime-73f448d8989f0f9aeaf1.js>; rel=preload; as=script
   Link: </framework-305b3707783ccc9d7ca6.js>; rel=preload; as=script
   Link: </app-b1bbd083a49595119071.js>; rel=preload; as=script
@@ -68,7 +68,7 @@
   Link: </ec186dd43493401e0c8852948f3df73699119dfe-08d892678a196fff83e4.js>; rel=preload; as=script
   Link: </component---node-modules-lekoarts-gatsby-theme-minimal-blog-core-src-templates-post-query-tsx-03f556af035f36eb634a.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
-  Link: </page-data/overview-of-designing-data-intensive-applications/page-data.json>; rel=preload; as=fetch; crossorigin
+  Link: </page-data/overview-of-designing-data-intensive-applications-part-1/page-data.json>; rel=preload; as=fetch; crossorigin
 /kanji-difficulty-classification-system-design-document
   Link: </webpack-runtime-73f448d8989f0f9aeaf1.js>; rel=preload; as=script
   Link: </framework-305b3707783ccc9d7ca6.js>; rel=preload; as=script
