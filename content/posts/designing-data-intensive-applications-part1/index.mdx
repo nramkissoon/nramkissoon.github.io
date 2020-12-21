@@ -29,10 +29,12 @@ the structure for the rest of this overview and subsequent posts covering the la
 
 ## 1. Foundations of Data Systems
 
+![Concept Map](part1_concept_map.jpg)
+
 Well designed systems are:
 1. Reliable - they work as intended and are fault tolerant
 2. Scalable - they can handle growth (users, requests, data, etc.)
-3. Maintainable - engineers can monitor and make changes without creating unecessary downtime
+3. Maintainable - engineers can monitor and make changes without creating unnecessary downtime
 
 When designing data-intensive systems, every decision should be evaluated based on its impact on reliability, 
 scalability, and maintainability. In almost all cases, a trade-off is present. 
@@ -59,7 +61,7 @@ For data models, there are 2 primary options: the relational and document models
 
 Modern relational and document databases have converged in terms of performance and what features they offer.
 Reliable and scalable systems can be built with either data model. What should drive the 
-desicion-making process between the 2 models is maintainability. 
+decision-making process between the 2 models is maintainability. 
 
 A poorly chosen data model 
 will lead to maintainability issues further down the road because data naturally evolves and tends to become
@@ -93,7 +95,7 @@ This chart borrowed from the book illustrates the differences between OLTP and O
 |What data represents|latest state of data|history of events|
 
 Because OLTP and OLAP systems serve very different purposes, it has become common practice to separate 
-the 2 even if they essentially represent the same data. Large enteprises now use data warehouses 
+the 2 even if they essentially represent the same data. Large enterprises now use data warehouses 
 optimized for bulk reads for their OLAP needs. Data warehouses diverge significantly from 
 relational and document databases used for OLTP in implementation. For example, techniques such as column-oriented storage
 are used in data warehouses because they make bulk reads more efficient.
