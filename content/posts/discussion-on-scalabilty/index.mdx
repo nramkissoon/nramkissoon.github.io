@@ -1,0 +1,57 @@
+---
+title: Understanding Scalability
+date: 2020-12-28
+tags:
+  - Distributed Systems
+  - System Design
+---
+
+From [this GitHub repository on system design](https://github.com/donnemartin/system-design-primer#system-design-topics-start-here):
+```
+A service is scalable if it results in increased performance in a manner proportional to resources added.
+```
+
+Scalability is a crucial component of system design. Granted, not every system needs to take scalability into consideration.
+Most systems like simple webpages can function just fine with only one or a few host servers, for example. 
+However in cases such as large companies such as Facebook, Google, and Amazon whose services are used by millions of people 
+concurrently and growing, scalability is probably the most important facet of system design. 
+
+The necessity of scalability is easy to understand; going about making a system scalable correctly is 
+a complex problem that involves analysis of tradeoffs involving scalability and performance, cost, etc. and 
+correct anticipation of the increase in users, data, requests that need to be handled in the future. 
+
+This [Harvard video lecture by David Malan](https://www.youtube.com/watch?v=-W9F__D3oY4) is a good overview of 
+general scalability solutions.
+Here is a short summary of the covered material:
+
+1. **Vertical Scaling** - upgrading a single machine in order to increase its individual performance, problematic if you need performance **beyond** what the latest technology can offer, also introduces a **single point of failure**
+2. **Horizontal Scaling** - using several lower-end machines to handle increased load, lowers individual cost per machine, introduces more **fault tolerance**, requires systems for coordinating several machines (load balancing, routing, etc.), used in **datacenters**
+3. **Load Balancing** - **load balancing algorithms** aim to distribute load as evenly as possible
+4. **Caching** - storing precalculated responses or files decreases latency and the amount of work needed to serve clients, can cause problems when the cached information becomes outdated
+5. **Data Replication** - making copies of data increases redundancy and allows for higher query loads if client requests can be routed/load balanced to different copies of the data
+6. **Partitioning** - splitting responsibilities amongst different servers can balance load effectively if implemented correctly
+
+In **Designing Data-Intensive Applications**, Martin Kleppmann explains *how* to discuss scalability. 
+When discussing the scalability of a system, **load parameters** need to be succinctly described and understood.
+Some examples of load parameters are: 
+
+- requests per second to a web server
+- ratio of reads to writes in a database
+- hit rate on a cache
+
+Once key load parameters are identified, the effect of increasing the load parameters on performance should be investigated.
+For example, if the system load paramter is requests per second to a web server, if requests per second increases by X amount, 
+how much does some performance metric (e.g. response time, throughput, etc.) degrade? Furthermore, if requests per second increases by X amount, what resources
+can we add to the system to maintain performance?
+
+Regarding performance metrics, like load parameters, need to be properly defined in order to develop a scalability solution. Kleppmann makes a clear case for 
+using medians and percentiles rather than averages for describing response times, throughput, and other performance metrics. When looking at response times, 
+average response times do not say much about the **typical** response time of a user, the median does. On top of that, businesses generally care about the 99.9% percentile or greater because 
+of Service Level Agreements or because at those percentiles, user experience is greatly affected to the point of negatively impacting business.
+
+From here, an important distinction between performance and scalability can be made. Just because a system has high performance now **does not** imply that
+it will have high performance when load increases. In the same vein, a scalable system may have poor performance all things considered, but that performance does not degrade 
+with increased load because it is scalable.
+
+As a final note, scalability **cannot** be an afterthought when designing systems. It is often harder to turn a non-scalable architecture into a scalable one than it is to
+simply scrap the non-scalable architecture and start afresh. 
