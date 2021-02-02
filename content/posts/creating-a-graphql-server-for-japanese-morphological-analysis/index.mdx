@@ -1,0 +1,111 @@
+---
+title: Creating a GraphQL Server for Japanese Morphological Analysis
+date: 2021-02-01
+tags:
+  - Projects
+  - API Design
+  - GraphQL
+  - NodeJS
+---
+
+Repository: [https://github.com/nramkissoon/morph-analyzer-service-for-japanese](https://github.com/nramkissoon/morph-analyzer-service-for-japanese)
+
+In order to learn how GraphQL works and practice using Docker, 
+I decided to develop this small server project that exposes a GraphQL API
+one can use to interact with [MeCab](https://taku910.github.io/mecab/), a morphological
+analyzer for the Japanese language. Setting up MeCab on a machine is a pain so Docker is used to install
+MeCab and dictionary dependencies in a container for portability to any machine.
+
+## GraphQL API
+
+A single query is implemented that takes in a text argument:
+```graphql
+query{
+  tokenize(text:"大統領") {
+    words {
+      kanji
+      pronunciation
+      lexical
+      compound1
+      compound2
+      compound3
+      reading
+      conjugation
+    }
+    error {
+      name
+    }
+  }
+}
+```
+
+The server tokenizes the text and returns data related to each token as specified by the query:
+```graphql
+{
+  "data": {
+    "tokenize": {
+      "words": [
+        {
+          "kanji": "大統領",
+          "pronunciation": "ダイトーリョー",
+          "lexical": "名詞",
+          "compound1": "一般",
+          "compound2": null,
+          "compound3": null,
+          "reading": "ダイトウリョウ",
+          "conjugation": null
+        }
+      ],
+      "error": null
+    }
+  }
+}
+```
+
+Here is where the benefits of GraphQL show up, if a client only needed the readings of the tokens in the text, 
+all they have to do is specify that in their query, and they'll only receive the data they requested.
+
+## Implementation Using TypeScript
+
+[TypeGraphQL](https://typegraphql.com/) is used to implement the GraphQL schema and resolvers for the API.
+The learning curve is pretty steep as I did not even know annotations existed in TypeScript.
+However, being able to define the schema and types in TypeScript makes for a cleaner codebase.
+
+This is a sample type definition that is used in the GraphQL schema:
+```typescript
+@ObjectType()
+export class MecabOutputError {
+    @Field(() => String)
+    name: string;
+    @Field(() => String)
+    message: string;
+}
+```
+
+This simply translates to a type called 'MecabOutputError' that has 2 string fields: name and message.
+The fields default to non-nullable.
+
+And here is a resolver:
+```typescript
+@Resolver()
+export class QueryResolver {
+    @Query(() => MecabOutput, { nullable: false })
+    tokenize(@Arg('text', () => String, { nullable: false }) text: string): MecabOutput {
+        return mecabParseSync(text);
+    }
+}
+```
+
+When building a schema with TypeGraphQL, you can choose to emit a .gql schema file which contains the GraphQL translation
+of the TypeScript schema you wrote. This is helpful for learning and debugging.
+
+For the above resolver, this is the equivalent GraphQL:
+```graphql
+type Query {
+  tokenize(text: String!): MecabOutput!
+}
+```
+
+[Apollo Server](https://www.apollographql.com/docs/apollo-server/) and Express is used for the actual server. Not much needs to be said here as the two
+are easy to set up and integrate together using the [apollo-server-express](https://www.npmjs.com/package/apollo-server-express) package.
+
