@@ -3,6 +3,7 @@
 <url> <loc>https://nramkissoon.github.io/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://nramkissoon.github.io/blog</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://nramkissoon.github.io/tags</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://nramkissoon.github.io/creating-a-graph-ql-server-for-japanese-morphological-analysis</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://nramkissoon.github.io/creating-a-stock-market-simulator-for-twitch-chat</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://nramkissoon.github.io/understanding-scalability</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://nramkissoon.github.io/overview-of-designing-data-intensive-applications-part-1</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -13,10 +14,12 @@
 <url> <loc>https://nramkissoon.github.io/tags/classification</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://nramkissoon.github.io/tags/databases</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://nramkissoon.github.io/tags/distributed-systems</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://nramkissoon.github.io/tags/graph-ql</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://nramkissoon.github.io/tags/linear-regression</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://nramkissoon.github.io/tags/logistic-regression</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://nramkissoon.github.io/tags/machine-learning</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://nramkissoon.github.io/tags/natural-language-processing</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://nramkissoon.github.io/tags/node-js</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://nramkissoon.github.io/tags/projects</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://nramkissoon.github.io/tags/sv-ms</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://nramkissoon.github.io/tags/system-design</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
